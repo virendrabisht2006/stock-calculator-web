@@ -1,0 +1,30 @@
+[
+  {
+    "stockSymbol": "SBI",
+    "type": "Common",
+    "lastDividend": 125,
+    "fixedDividendPercentage": 8,
+    "parValue": 328
+  },
+  {
+    "stockSymbol": "PNB",
+    "type": "Preferred",
+    "lastDividend": 126,
+    "fixedDividendPercentage": 2,
+    "parValue": 90
+  },
+  {
+    "stockSymbol": "ICICI",
+    "type": "Common",
+    "lastDividend": 127,
+    "fixedDividendPercentage": 6,
+    "parValue": 100
+  },
+  {
+    "stockSymbol": "HDFC",
+    "type": "Preferred",
+    "lastDividend": 125,
+    "fixedDividendPercentage": 3,
+    "parValue": 1110
+  }
+]
