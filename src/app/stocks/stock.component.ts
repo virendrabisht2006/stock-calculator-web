@@ -45,4 +45,9 @@ export class StockComponent implements OnInit {
                     error => this.errorMessage = <any>error);
   }
 
+  onSubmit(stock: IStock){
+    console.log('Request recived for stock: '+stock.stockSymbol);
+    this._stockService.addStock(stock).subscribe(status=> console.log(JSON.stringify(status)));
+  }
+
 }

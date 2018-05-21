@@ -1,30 +1,36 @@
 <div class='panel panel-primary'>
+  <!-- <div class="form-group">
+     <form #stockForm="ngForm"(ngSubmit)="onSubmit(stockForm.value)">
+         Stock Name: <input placeholder="Enter stock name" name="stockSymbol" [(ngModel)]="stockSymbol">
+         Stock Type:<input  placeholder="Enter stock type" name="type" [(ngModel)]="type">
+         Par Value: <input  placeholder="Enter par value" name="parValue" [(ngModel)]="parValue">
+         Last Dividend Yield: <input placeholder="Enter last dividend yield" name="lastDividend" [(ngModel)]="lastDividend">
+         Fixed Dividend %: <input placeholder="Fixed dividend " name="fixedDividendPercentage" [(ngModel)]="fixedDividendPercentage">
+         <button type="submit" class='btn btn-primary' align="right">Add</button>
+     </form>
+   </div> -->
+
   <div class='panel-heading'>
     {{pageTitle}}
   </div>
+
   <div class='panel-body'>
     <div class='row'>
-      <!--<div class='col-md-2'>Filter by:</div>
+      <div class='col-md-2'>Filter by:</div>
       <div class='col-md-4'>
         <input type='text' [(ngModel)]='listFilter'/>
-      </div>-->
-    </div>
-    <div class='row'>
-      <div class='col-md-6'>
-        <h3>Filtered by: {{listFilter}} </h3>
       </div>
     </div>
+    <!-- <div class='row'>
+       <div class='col-md-6'>
+         <h3>Filtered by: {{listFilter}} </h3>
+       </div>
+     </div>-->
     <div class='table-responsive'>
       <table class='table'
              *ngIf='stocks && stocks.length'>
         <thead>
         <tr>
-          <th>
-            <button class='btn btn-primary'
-                    (click)='toggleImage()'>
-              {{showImage ? 'Hide' : 'Show'}} Image
-            </button>
-          </th>
           <th>Stock</th>
           <th>Stock Type</th>
           <th>Par Value</th>
@@ -33,14 +39,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor='let stock of stocks'>
-          <td>
-            <img *ngIf='showImage'
-                 [src]='stocks.imageUrl'
-                 [title]='stocks.stockSymbol'
-                 [style.width.px]='imageWidth'
-                 [style.margin.px]='imageMargin'>
-          </td>
+        <tr *ngFor='let stock of filteredStocks'>
           <td><a [routerLink]="['/stocks', stock.stockSymbol]">
             {{ stock.stockSymbol }}
           </a>

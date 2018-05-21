@@ -8,7 +8,7 @@ import{Component}from'@angular/core';
                 <a class='navbar-brand'>{{pageTitle}}</a>
                 <ul class='nav navbar-nav'>
                     <li><a [routerLink]="['/welcome']">Home</a></li>
-                    <li><a [routerLink]="['/stocks']">Stock List</a></li>
+                    <li><a [routerLink]="['/stocks']">Stock</a></li>
                     <li><a [routerLink]="['/trades']">Trade</a></li>
                 </ul>
             </div>
