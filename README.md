@@ -1,5 +1,7 @@
 # StockCalculatorWeb
-This is UI for Stock application which expose multiple rest end point for service.
+StockCalculatorWeb is a UI for Stock application which expose multiple rest end point for service. StockCalculatorWeb is in development phase.
+Like stock list, high traded stock, dividend per stock etc for more detail please go through readme for stock application below.
+https://github.com/virendrabisht2006/Stocks/blob/master/README.md
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.2.
 
