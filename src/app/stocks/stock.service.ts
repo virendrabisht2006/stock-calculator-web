@@ -12,7 +12,7 @@ import {IStock}from './stock';
 })
 export class StockService {
 
-  private _stockUrl = 'http://localhost:8080/v1/stocks';
+  private _stockUrl = 'http://localhost:8081/v1/stocks';
 
     constructor(private _http: HttpClient) { }
 
@@ -23,6 +23,7 @@ export class StockService {
     }
 
     getStock(stockSymbol: string): Observable<IStock> {
+    console.log('I am here..');
         return this.getStocks()
             .map((stocks: IStock[]) => stocks.find(s => s.stockSymbol === stockSymbol));
     }
@@ -30,15 +31,16 @@ export class StockService {
     addStock(stock: IStock): Observable<IStock>{
       console.log('Jsom data: '+JSON.stringify(stock))
 
-      var httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json'
-        })
-      };
+     const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Methods': 'POST, GET, DELETE, PUT,OPTIONS' })
+    };
+       let body = JSON.stringify(stock);
 
-        return this._http.post<IStock>(this._stockUrl, JSON.stringify(stock), httpOptions)
-        .do(data => console.log('All Post Data: ' + JSON.stringify(data)))
-            .catch(this.handleError);
+        return this._http.post<any>(this._stockUrl, body, httpOptions)
+       .do(data => console.log('All Post Data: ' + JSON.stringify(data)))
+           .catch(this.handleError);
     }
 
     private handleError(err: HttpErrorResponse) {
