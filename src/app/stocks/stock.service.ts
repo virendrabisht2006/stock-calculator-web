@@ -29,23 +29,19 @@ export class StockService {
     }
 
     addStock(stock: IStock): Observable<IStock>{
-      console.log('Jsom data: '+JSON.stringify(stock))
+    let body = JSON.stringify(stock);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*', 'Access-Control-Allow-Methods': 'POST, GET, DELETE, PUT,OPTIONS' }) };
+      console.log('Jsom data: '+body);
 
-     const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin':'*',
-    'Access-Control-Allow-Methods': 'POST, GET, DELETE, PUT,OPTIONS' })
-    };
-       let body = JSON.stringify(stock);
-
-        return this._http.post<any>(this._stockUrl, body, httpOptions)
-       .do(data => console.log('All Post Data: ' + JSON.stringify(data)))
-           .catch(this.handleError);
+        return this._http.post<IStock>(this._stockUrl, body, httpOptions);
+      // .do(data => console.log('All Post Data: ' + JSON.stringify(data)))
+        //   .catch(this.handleError);
     }
 
     private handleError(err: HttpErrorResponse) {
         let errorMessage = '';
         if (err.error instanceof Error) {
+            errorMessage = `An error occurred: ${err.error.message}`;
             errorMessage = `An error occurred: ${err.error.message}`;
         } else {
             errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;

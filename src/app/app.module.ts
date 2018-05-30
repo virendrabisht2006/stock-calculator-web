@@ -1,11 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule }from '@angular/forms';
-import { NgModule } from '@angular/core';
+import{BrowserModule}from'@angular/platform-browser';
+import {FormsModule}from '@angular/forms';
+import {NgModule}from '@angular/core';
 import {HttpClientModule}from '@angular/common/http';
 import {HttpHeaders}from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-
-import { AppComponent } from './app.component';
+import {RouterModule}from '@angular/router';
+import {AppComponent} from './app.component';
 import { WelcomeComponent } from './home/welcome/welcome.component';
 import {StockComponent}from './stocks/stock.component';
 import {StockService}from './stocks/stock.service';
