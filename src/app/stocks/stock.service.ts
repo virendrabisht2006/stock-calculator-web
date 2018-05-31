@@ -30,12 +30,13 @@ export class StockService {
 
     addStock(stock: IStock): Observable<IStock>{
     let body = JSON.stringify(stock);
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*', 'Access-Control-Allow-Methods': 'POST, GET, DELETE, PUT,OPTIONS' }) };
-      console.log('Jsom data: '+body);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type':'application/json') 
+    };
+      console.log('Jsom data for add Stock: '+body);
 
-        return this._http.post<IStock>(this._stockUrl, body, httpOptions);
-      // .do(data => console.log('All Post Data: ' + JSON.stringify(data)))
-        //   .catch(this.handleError);
+        return this._http.post<IStock>(this._stockUrl, body, httpOptions)
+        .do(data => console.log('All Post Data: ' + JSON.stringify(data)))
+      .catch(this.handleError);
     }
 
     private handleError(err: HttpErrorResponse) {
